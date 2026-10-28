@@ -4,7 +4,7 @@ class BankAccount:
 
     def __init__(self,name):
         self.name = name
-        self.balance = 0
+        self.balance = 100
     # set default varibles for an empty account
 
 
@@ -20,13 +20,14 @@ Please choose an option:
 4. Quit)''')
 
             answer = input('Enter only the number: ').strip()
+            print()
 
             if answer == '1':
                 self.make_deposit()
 
             elif answer == '2':
-                #self.make_withdrawal(self)
-                pass
+                self.make_withdrawal()
+                
             elif answer == '3':
                 #self.view_info(self)
                 pass
@@ -50,18 +51,32 @@ Please choose an option:
                 break
 
             except:
-                print("Invalid input. Please enter a valid number.")
+                print("Invalid input. Please enter a valid number. $")
 
     # **Make a withdrawal:** 
     # Ask how much money they would like to withdraw. 
     # The program should not allow the customer to withdraw more money than they currently 
     # have in the account. Make sure withdrawals change the account balance correctly.
-    def make_withdrawl(self):
-        self.amount = int(input('How much would you like to withdraw? '))
-        self.balance -= self.amount
-        if self.amount < 0:
-            self.balance += self.amount
-            print('insufficient funds')
+    def make_withdrawal(self):
+        while True:
+            self.amount = input('How much would you like to withdraw? $')
+
+            try:
+                self.amount = float(self.amount)
+                self.balance -= self.amount
+
+                if self.balance < 0:
+                    self.balance += self.amount
+                    print('insufficient funds')
+
+                else:
+                    print(f'sucessfully withdrew ${self.amount:.2f}')
+                
+                break
+
+            except:
+                print("Invalid input. Please enter a valid number.")
+                print()
 
     # **View account information:** 
     # Display the customer’s name, account number, and current balance.
