@@ -47,8 +47,8 @@ Please choose an option:
 
             try:
                 self.amount = float(self.amount)
-                if self.amount <= 0:
-                    print("Deposit amount must be greater than zero.")
+                if self.amount <= 0.01:
+                    print("Deposit amount must be greater than $0.01.")
                     continue
                 self.balance += self.amount
                 print(f'sucessfully deposited ${self.amount:.2f}')
@@ -68,17 +68,17 @@ Please choose an option:
 
             try:
                 self.amount = float(self.amount)
-                if self.amount <= 0:
-                    print("Withdrawal amount must be greater than zero.")
+                if self.amount <= 0.01:
+                    print("Withdrawal amount must be greater than $0.01.")
                     continue
-                self.balance -= self.amount
 
-                if self.balance < 0:
-                    self.balance += self.amount
+
+                if self.balance < self.amount:
                     print('insufficient funds')
+                    continue
 
-                else:
-                    print(f'sucessfully withdrew ${self.amount:.2f}')
+                self.balance -= self.amount
+                print(f'sucessfully withdrew ${self.amount:.2f}')
                 
                 break
 
