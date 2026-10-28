@@ -1,10 +1,11 @@
-
+from random import randint
 
 class BankAccount:
 
     def __init__(self,name):
         self.name = name
         self.balance = 100
+        self.account_num = f"{randint(1,1000):04d}"
     # set default varibles for an empty account
 
 
@@ -29,11 +30,11 @@ Please choose an option:
                 self.make_withdrawal()
                 
             elif answer == '3':
-                #self.view_info(self)
-                pass
+                self.view_info()
+
             elif answer =='4':
-                #self.exit(self)
-                pass
+                print("Thank you for your business!")
+                return False
             else:
                 print('Invalid choice. Please try again. Please print only the number')
                 
@@ -81,4 +82,4 @@ Please choose an option:
     # **View account information:** 
     # Display the customer’s name, account number, and current balance.
     def view_info(self):
-        pass
+        print(f'Name: {self.name}\nAccount #:{self.account_num}\nBalance: ${self.balance:,.2f}')

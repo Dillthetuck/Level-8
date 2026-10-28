@@ -9,8 +9,9 @@ def main():
     account = BankAccount(name)
 
     #shows the main menu and function select, asnwer will call the chosen function
-    while True:
-        account.main_menu()
+    go = True
+    while go == True:
+        go = account.main_menu()
             
 
 
