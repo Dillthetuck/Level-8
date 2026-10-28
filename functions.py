@@ -13,13 +13,13 @@ class BankAccount:
         while True:
 
             print('''
-            Please choose an option:
-            1. Make a deposit
-            2. Make a withdrawal
-            3. View account information
-            4. Quit)''')
+Please choose an option:
+1. Make a deposit
+2. Make a withdrawal
+3. View account information
+4. Quit)''')
 
-            answer = input().strip()
+            answer = input('Enter only the number: ').strip()
 
             if answer == '1':
                 #self.make_deposit(self)
