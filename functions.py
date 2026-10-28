@@ -22,8 +22,8 @@ Please choose an option:
             answer = input('Enter only the number: ').strip()
 
             if answer == '1':
-                #self.make_deposit(self)
-                pass
+                self.make_deposit()
+
             elif answer == '2':
                 #self.make_withdrawal(self)
                 pass
@@ -40,14 +40,28 @@ Please choose an option:
     # **Make a deposit:** Ask how much money they would like to add to the account. 
     # Make sure deposits change the account balance correctly.
     def make_deposit(self):
-        pass
+        while True:
+            self.amount = input('How much would you like to deposit? ')
+
+            try:
+                self.amount = float(self.amount)
+                self.balance += self.amount
+                print(f'sucessfully deposited ${self.amount:.2f}')
+                break
+
+            except:
+                print("Invalid input. Please enter a valid number.")
 
     # **Make a withdrawal:** 
     # Ask how much money they would like to withdraw. 
     # The program should not allow the customer to withdraw more money than they currently 
     # have in the account. Make sure withdrawals change the account balance correctly.
     def make_withdrawl(self):
-        pass
+        self.amount = int(input('How much would you like to withdraw? '))
+        self.balance -= self.amount
+        if self.amount < 0:
+            self.balance += self.amount
+            print('insufficient funds')
 
     # **View account information:** 
     # Display the customer’s name, account number, and current balance.
