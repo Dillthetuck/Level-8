@@ -68,14 +68,14 @@ Please choose an option:
 
             try:
                 self.amount = float(self.amount)
-                if self.amount <= 0.01:
-                    print("Withdrawal amount must be greater than $0.01.")
+                if self.amount < 0.01:
+                    print("Withdrawal amount must be greater than $0.00.")
                     continue
 
 
                 if self.balance < self.amount:
                     print('insufficient funds')
-                    continue
+                    return
 
                 self.balance -= self.amount
                 print(f'sucessfully withdrew ${self.amount:.2f}')
