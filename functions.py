@@ -4,7 +4,7 @@ class BankAccount:
 
     def __init__(self,name):
         self.name = name
-        self.balance = 100
+        self.balance = 0
         self.account_num = f"{randint(1,1000):04d}"
     # set default varibles for an empty account
 
@@ -47,8 +47,12 @@ Please choose an option:
 
             try:
                 self.amount = float(self.amount)
+                if self.amount <= 0:
+                    print("Deposit amount must be greater than zero.")
+                    continue
                 self.balance += self.amount
                 print(f'sucessfully deposited ${self.amount:.2f}')
+
                 break
 
             except:
@@ -64,6 +68,9 @@ Please choose an option:
 
             try:
                 self.amount = float(self.amount)
+                if self.amount <= 0:
+                    print("Withdrawal amount must be greater than zero.")
+                    continue
                 self.balance -= self.amount
 
                 if self.balance < 0:
